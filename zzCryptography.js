@@ -8,15 +8,72 @@ This software shall not be sold or used commericially without prior written auth
 /* 
 contains:
 	1 array
-		.englishAlphabet
+		.englishAlphabet //the english alphabet
+
+	2 objects
+		.englishLetterFrequency 	
+			//frequency data for the english language
+			//in percentages
+		.letterFrequency 			
+			//frequency data produced by the frequencyCount function
+			//in percentages
+			//value of every letter is 0 by default
+
+	4 functions
+		.converter(text)			
+			//converts a string into an array w/o punctuation or spaces. 
+			//converts single digits to their corresponding words. 
+			//does not do longer numbers yet so "103.4" becomes "onezerothreefour" rather than "onehundredandthreepointfour"
+			//I'll fix that later if i ever come back to this project
+
+		.frequencyCount(text)		
+			//does a frequency analysis of an inputted string
+			//puts the data in .letterFrequency
+
+		.viginere(text1,text2)		
+			//accepts two strings
+			//first is plaintext
+			//second is the key
+			//uses the viginere square cipher and the key to encrypt the plaintext, producing ciphertext
+			//returns ciphertext as a string of letters w/o sentence breaks, punctuation, etc
+
+		.fred 						
+			//returns "FRED LIVES"
+			//does nothing else
 */
 
 
 var zzcryptography = {
-	
+	this.englishAlphabet = [
+		'a', 
+		'b', 
+		'c', 
+		'd', 
+		'e', 
+		'f', 
+		'g', 
+		'h', 
+		'i', 
+		'j', 
+		'k', 
+		'l', 
+		'm', 
+		'n', 
+		'o', 
+		'p', 
+		'q', 
+		'r', 
+		's', 
+		't', 
+		'u', 
+		'v', 
+		'w', 
+		'x', 
+		'y', 
+		'z'
+	];
 };
 
-//its letterFrequency but for the ENTIRE ENGLISH LANGUAGE
 zzcryptography.englishLetterFrequency = {
 	a:8.167, 
 	b:1.492, 
@@ -45,8 +102,6 @@ zzcryptography.englishLetterFrequency = {
 	y:1.974, 
 	z:0.074
 };
-
-//when you use frequencyCount it puts the data in here
 zzcryptography.letterFrequency = {
 	a:0,
 	b:0,
@@ -76,40 +131,6 @@ zzcryptography.letterFrequency = {
 	z:0
 };
 
-//the english alphabet
-//but like
-//as an array
-zzcryptography.englishAlphabet = [
-	'a', 
-	'b', 
-	'c', 
-	'd', 
-	'e', 
-	'f', 
-	'g', 
-	'h', 
-	'i', 
-	'j', 
-	'k', 
-	'l', 
-	'm', 
-	'n', 
-	'o', 
-	'p', 
-	'q', 
-	'r', 
-	's', 
-	't', 
-	'u', 
-	'v', 
-	'w', 
-	'x', 
-	'y', 
-	'z'
-];
-
-//it takes your string and converts it to an array with no punctuation, spaces, etc
-//it only converts single digit numbers because im lazy.
 zzcryptography.converter = function( text ){
 	var originalText = text;
 
@@ -131,10 +152,6 @@ zzcryptography.converter = function( text ){
   	var convertedText = originalText.split("");
   	return convertedText;
 };
-
-//frequency counter my oh my
-//only in english sORRY
-//feed it a string variable. NO ARRAYS. 
 zzcryptography.frequencyCount = function( text ){
 	var originalText = text;
 	var textArray[] = zzcryptography.converter(text);
@@ -284,10 +301,6 @@ zzcryptography.frequencyCount = function( text ){
 	zzcryptography.letterFrequency.y = letterCountConvert(letterCount.y);
 	zzcryptography.letterFrequency.z = letterCountConvert(letterCount.z);
 };
-
-//oh look. it does the viginere square cipher too.
-//it takes 2 STRING variable for inputs. plaintext and keytext and gives u ur ciphertext as a string
-//2STRINGS
 zzcryptography.viginere = function(a,b){
 	var originalText = a;
 	var plaintext = zzcryptography.converter(a);
@@ -310,8 +323,10 @@ zzcryptography.viginere = function(a,b){
 
 	return ciphertext;
 };
-
-//HE LIVES
 zzcryptography.fred = function(){
-	return 'FRED LIVES';
+	var fredStatus;
+	if (1 == 1) {
+		fredStatus = 'FRED LIVES';
+	}
+	return fredStatus;
 };
