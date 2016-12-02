@@ -2,6 +2,7 @@ var zzcryptography = {
 	
 };
 
+//its letterFrequency but for the ENTIRE ENGLISH LANGUAGE
 zzcryptography.englishLetterFrequency = {
 	a:8.167, 
 	b:1.492, 
@@ -31,6 +32,7 @@ zzcryptography.englishLetterFrequency = {
 	z:0.074
 };
 
+//when you use frequencyCount it puts the data in here
 zzcryptography.letterFrequency = {
 	a:0,
 	b:0,
@@ -60,6 +62,9 @@ zzcryptography.letterFrequency = {
 	z:0
 };
 
+//the english alphabet
+//but like
+//as an array
 zzcryptography.englishAlphabet = [
 	'a', 
 	'b', 
@@ -89,6 +94,8 @@ zzcryptography.englishAlphabet = [
 	'z'
 ];
 
+//it takes your string and converts it to an array with no punctuation, spaces, etc
+//it only converts single digit numbers because im lazy.
 zzcryptography.converter = function( text ){
 	var originalText = text;
 
@@ -111,6 +118,9 @@ zzcryptography.converter = function( text ){
   	return convertedText;
 };
 
+//frequency counter my oh my
+//only in english sORRY
+//feed it a string variable. NO ARRAYS. 
 zzcryptography.frequencyCount = function( text ){
 	var originalText = text;
 	var textArray[] = zzcryptography.converter(text);
@@ -258,6 +268,9 @@ zzcryptography.frequencyCount = function( text ){
 	zzcryptography.letterFrequency.z = letterCountConvert(letterCount.z);
 };
 
+//oh look. it does the viginere square cipher too.
+//it takes 2 STRING variable for inputs. plaintext and keytext and gives u ur ciphertext as a string
+//2STRINGS
 zzcryptography.viginere = function(a,b){ //a is for plaintext and b is for keytext
 	var originalText = a;
 	var plaintext = zzcryptography.converter(a);
@@ -281,6 +294,7 @@ zzcryptography.viginere = function(a,b){ //a is for plaintext and b is for keyte
 	return ciphertext;
 };
 
+//HE LIVES
 zzcryptography.fred = function(){
 	return 'FRED LIVES';
 };
