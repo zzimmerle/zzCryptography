@@ -10,6 +10,9 @@ to use:
 	make a textarea or other way to input text and a variable to hold the text. label them plaintextInput or something like that
 	make another textarea and variable pair. label them keyInput or something like that
 
+	FREQUENCY COUNT REFERENCE DATA
+		contains arrays w/ frequency count data for the english language
+
 	CONVERTER
 		the converter function accepts one argument (a string variable) and returns an array with the following removed and/or replaced:
 			punctuation
@@ -18,9 +21,6 @@ to use:
 			symbols
 			accented letters (converted to unaccented letters)
 			capitalization
-
-	FREQUENCY COUNT REFERENCE DATA
-		contains arrays w/ frequency count data for the english language
 
 	FREQUENCY COUNTER
 		accepts 1 argument: plaintext

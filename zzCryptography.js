@@ -1,3 +1,17 @@
+/*Copyright (C) 2016 Zach Zimmerle
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Except as contained in this notice, the name of the Zach Zimmerle shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from Zach Zimmerle.
+This software shall not be sold or used commericially without prior written authorization from Zach Zimmerle.*/
+
+/* 
+contains:
+	1 array
+		.englishAlphabet
+*/
+
+
 var zzcryptography = {
 	
 };
@@ -240,6 +254,9 @@ zzcryptography.frequencyCount = function( text ){
 	var letterCountConvert = function(a){
 		return ((a * 100)/totalLetterCount);
 	};
+
+	// zzcryptography.letterFrequency[member] = letterCountConvert(letterCount[member]);
+
 	zzcryptography.letterFrequency.a = letterCountConvert(letterCount.a);
 	zzcryptography.letterFrequency.b = letterCountConvert(letterCount.b);
 	zzcryptography.letterFrequency.c = letterCountConvert(letterCount.c);
@@ -279,7 +296,7 @@ zzcryptography.viginere = function(a,b){
 	var alphabet = zzcryptography.englishAlphabet;
 	var ciphertextArray = [];
 
-	for (var i = 0; i <= plaintext.length; i++) {
+	for (var i = 0; i < plaintext.length; i++) {
 		var keyIndex = i % keytext.length; //where are we in the key
 		var plaintextLetterIndex = alphabet.indexof(plaintext[i]); //what letter are we converting from (more specifically: what index in the alphabet array represents it)
 		var keyLetterIndex = alphabet.indexof(keytext[keyIndex]); //what letter is the key right now (more specifically: what index in the alphabet array represents it)
