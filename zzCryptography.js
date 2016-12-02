@@ -280,3 +280,7 @@ zzcryptography.viginere = function(a,b){ //a is for plaintext and b is for keyte
 
 	return ciphertext;
 };
+
+zzcryptography.fred = function(){
+	return 'FRED LIVES';
+};
