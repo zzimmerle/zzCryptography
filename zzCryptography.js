@@ -271,7 +271,7 @@ zzcryptography.frequencyCount = function( text ){
 //oh look. it does the viginere square cipher too.
 //it takes 2 STRING variable for inputs. plaintext and keytext and gives u ur ciphertext as a string
 //2STRINGS
-zzcryptography.viginere = function(a,b){ //a is for plaintext and b is for keytext
+zzcryptography.viginere = function(a,b){
 	var originalText = a;
 	var plaintext = zzcryptography.converter(a);
 	var originalKey = b;
