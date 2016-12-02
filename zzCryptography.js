@@ -1,35 +1,3 @@
-//ZZ's fun cryptography grab-bag thing
-//
-//contains:
-//	text converter
-//	frequency count reference data
-//	frequency count
-//	viginere square encryption
-//
-//to use:
-//	make a textarea or other way to input text and a variable to hold the text. label them plaintextInput or something like that
-//	make another textarea and variable pair. label them keyInput or something like that
-//
-//	CONVERTER
-//		the converter function accepts one argument (a string variable) and returns an array with the following removed and/or replaced:
-//			punctuation
-//			spaces
-//			numbers (converted to word format)
-//			symbols
-//			accented letters (converted to unaccented letters)
-//			capitalization
-//
-//	FREQUENCY COUNT REFERENCE DATA
-//		contains arrays w/ frequency count data for the english language
-//
-//	FREQUENCY COUNTER
-//		accepts 1 argument: plaintext
-//		returns an array in alphabetical order of letter frequencies as percentages
-//
-//	VIGINERE SQUARE ENCRYPTION
-//		accepts 2 arguments (plaintext and keytext in that order)
-//		returns ciphertext
-
 var zzcryptography = {
 	
 };
@@ -118,7 +86,8 @@ zzcryptography.englishAlphabet = [
 	'w', 
 	'x', 
 	'y', 
-	'z'];
+	'z'
+];
 
 zzcryptography.converter = function( text ){
 	var originalText = text;
@@ -138,40 +107,40 @@ zzcryptography.converter = function( text ){
 	originalText = originalText.replace('9', 'nine');
 	originalText = originalText.replace('0', 'zero');
 
-  	var convertedText[] = originalText.split("");
-  	return convertedText[];
-}
+  	var convertedText = originalText.split("");
+  	return convertedText;
+};
 
 zzcryptography.frequencyCount = function( text ){
 	var originalText = text;
 	var textArray[] = zzcryptography.converter(text);
 	var letterCount = {
-	a:0,
-	b:0,
-	c:0,
-	d:0,
-	e:0,
-	f:0,
-	g:0,
-	h:0,
-	i:0,
-	j:0,
-	k:0,
-	l:0,
-	m:0,
-	n:0,
-	o:0,
-	p:0,
-	q:0,
-	r:0,
-	s:0,
-	t:0,
-	u:0,
-	v:0,
-	w:0,
-	x:0,
-	y:0,
-	z:0
+		a:0,
+		b:0,
+		c:0,
+		d:0,
+		e:0,
+		f:0,
+		g:0,
+		h:0,
+		i:0,
+		j:0,
+		k:0,
+		l:0,
+		m:0,
+		n:0,
+		o:0,
+		p:0,
+		q:0,
+		r:0,
+		s:0,
+		t:0,
+		u:0,
+		v:0,
+		w:0,
+		x:0,
+		y:0,
+		z:0
 	};
 	var totalLetterCount;
 
@@ -289,31 +258,25 @@ zzcryptography.frequencyCount = function( text ){
 	zzcryptography.letterFrequency.z = letterCountConvert(letterCount.z);
 };
 
-zzcryptography.viginere = function( text ){
-	var originalText = text;
-	var textArray[] = zzcryptography.converter(text);
-}
+zzcryptography.viginere = function(a,b){ //a is for plaintext and b is for keytext
+	var originalText = a;
+	var plaintext = zzcryptography.converter(a);
+	var originalKey = b;
+	var keytext = zzcryptography.converter(b);
+	var alphabet = zzcryptography.englishAlphabet;
+	var ciphertextArray = [];
 
-//var frequencycount = function(a){
+	for (var i = 0; i <= plaintext.length; i++) {
+		var keyIndex = i % keytext.length; //where are we in the key
+		var plaintextLetterIndex = alphabet.indexof(plaintext[i]); //what letter are we converting from (more specifically: what index in the alphabet array represents it)
+		var keyLetterIndex = alphabet.indexof(keytext[keyIndex]); //what letter is the key right now (more specifically: what index in the alphabet array represents it)
+		var targetIndex = (plaintextLetterIndex + keyLetterIndex) % alphabet.length;
 
-//	//set up arrays to recieve data
-//	var letterCount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-//	var letterCountPercent = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-//	
-//	//actually count
-//	for (var i = 0; i - 1 < userTextArray.length; i++) {
-//			for(var j = 0; j - 1 < userTextArray.length; j++){
-//		      	if(userTextArray[j] == englishAlphabet[i]){
-//		      		letterCount[i]++;
-//		      	}
-//		}	
-//	}
-//	
-//	//convert to %
-//	for (var k = 0; k < letterCount.length; k++) {
-//		letterCountPercent[k] = 100*(userText.length/letterCount[k]);
-//	}
-//	
-//	this.usertext = letterCountPercent[];
-//	this.english = englishLetterCount[];
-//}
+		var ciphertextLetter = alphabet[targetIndex];
+		ciphertextArray.push(ciphertextLetter);
+	};
+
+	var ciphertext = ciphertextArray.join();
+
+	return ciphertext;
+};
